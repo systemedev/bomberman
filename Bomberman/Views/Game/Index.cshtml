@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Bomberman.Models.Games>
+
+@{
+    ViewBag.Title = "Ma liste de jeux";
+}
+<div id="main">
+<h2>Ma liste de jeux</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th style="width:200px;">
+         Nom du jeu
+        </th>
+        <th style="width:200px;">
+          Temps restant
+        </th>
+        <th style="width:200px;">
+           Jeu publique ?
+        </th>
+   
+        <th style="width:200px;">Carte</th> 
+        
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remaining_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_public)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maps.title)
+       
+       
+        </td>
+        
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }) |  @Html.ActionLink("Jouons-y", "LetsPlay", new { id=item.id }) |  @Html.ActionLink("Inviter des amis", "Create","GameRequest", new {id=item.id },null) 
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

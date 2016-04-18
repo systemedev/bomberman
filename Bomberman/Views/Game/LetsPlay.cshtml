@@ -1,0 +1,78 @@
+﻿@model Bomberman.Models.Games
+<script type="text/javascript" src="~/Scripts/bomberman.js"></script>
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="main">
+
+<div id="remainingtime"></div>
+
+<fieldset>
+    <legend>Games</legend>
+
+    <div class="display-label">
+      Nom du jeu
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+</fieldset>
+<p>
+   
+   @Html.ActionLink("Back to my List of games", "Index","Game") |  @Html.ActionLink("Back to public games", "Index","Home")
+</p>
+
+    <div id="users" >
+                <h2 style="border:solid 1px;text-align: center;width:130px;margin-left:10px;">Users</h2>
+            </div>
+            <div id="listUsers" style="border: none 1px;">
+                <table id="tableUsers">
+                  <thead> 
+                  <tr > 
+                        <th style="width:40px;">ID</th> 
+                        <th style="width:200px;">NAME</th> 
+                        <th style="width:400px;">SCORE</th>
+                        <th style="width:400px;">LIFE</th>
+                        <th style="width:60px;">LEVEL</th> 
+                        <th style="width:60px;">BOMB</th>
+                        
+
+                    
+   
+
+
+                    </tr> 
+                 </thead>
+                <tbody>
+                
+                </tbody>
+                
+                </table>
+      </div>
+    <br />
+
+
+
+<canvas id="gamezone" width="1020px" height="1020px"></canvas>
+
+    </div>
+<script type="text/javascript">
+    // démarrage de la boucle de jeu
+    $.ajaxSetup({
+        // Disable caching of AJAX responses
+        cache: false
+    });
+    $(document).ready(function () {
+
+        Game.initialize(@Model.id);
+
+        
+    });
+
+
+    </script>
+
+

@@ -1,0 +1,50 @@
+﻿@model Bomberman.Models.Games_requests
+
+@{
+    ViewBag.Title = "Create";
+}
+<div id="main">
+<h2>Envoyer une invitation</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Games_requests</legend>
+
+        
+       
+
+        <div class="editor-label">
+           Quel jeu ?
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_game", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_game)
+        </div>
+
+
+         <div class="editor-label">
+           A qui ?
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("to_id_user", String.Empty)
+            @Html.ValidationMessageFor(model => model.to_id_user)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to my List of invitations", "Index","GameRequest") |
+    @Html.ActionLink("Back to my List of games", "Index","Game") |  @Html.ActionLink("Back to public games", "Index","Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+</div>

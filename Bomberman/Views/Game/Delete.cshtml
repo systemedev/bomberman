@@ -1,0 +1,56 @@
+﻿@model Bomberman.Models.Games
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div id="main">
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Games</legend>
+
+    <div class="display-label">
+        Nom du jeu
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+
+    <div class="display-label">
+       Temps restant
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.remaining_time)
+    </div>
+
+    <div class="display-label">
+      Jeu publique ?
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.is_public)
+    </div>
+
+   
+    <div class="display-label">
+     Carte
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Maps.title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserProfile.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserProfile.UserName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to my List of games", "Index","Game") | @Html.ActionLink("Back to public games", "Index","Home")
+    </p>
+}
+    </div>

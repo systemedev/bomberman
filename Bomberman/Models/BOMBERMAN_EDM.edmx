@@ -1,0 +1,956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BOMBERMANModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BOMBERMANModelStoreContainer">
+          <EntitySet Name="Cell_types" EntityType="BOMBERMANModel.Store.Cell_types" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Games" EntityType="BOMBERMANModel.Store.Games" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Games_details" EntityType="BOMBERMANModel.Store.Games_details" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Games_requests" EntityType="BOMBERMANModel.Store.Games_requests" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Locations" EntityType="BOMBERMANModel.Store.Locations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Maps" EntityType="BOMBERMANModel.Store.Maps" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="BOMBERMANModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users_play" EntityType="BOMBERMANModel.Store.Users_play" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="BOMBERMANModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="BOMBERMANModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="BOMBERMANModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="BOMBERMANModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Cell_typesexplosion_FK_Cell_types" Association="BOMBERMANModel.Store.Cell_typesexplosion_FK_Cell_types">
+            <End Role="Cell_types" EntitySet="Cell_types" />
+            <End Role="Cell_types1" EntitySet="Cell_types" />
+          </AssociationSet>
+          <AssociationSet Name="Cell_typeswalkon_FK_Cell_types" Association="BOMBERMANModel.Store.Cell_typeswalkon_FK_Cell_types">
+            <End Role="Cell_types" EntitySet="Cell_types" />
+            <End Role="Cell_types1" EntitySet="Cell_types" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="BOMBERMANModel.Store.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="BOMBERMANModel.Store.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="Games_details_FK_Cell_types" Association="BOMBERMANModel.Store.Games_details_FK_Cell_types">
+            <End Role="Cell_types" EntitySet="Cell_types" />
+            <End Role="Games_details" EntitySet="Games_details" />
+          </AssociationSet>
+          <AssociationSet Name="Games_details_FK_Games" Association="BOMBERMANModel.Store.Games_details_FK_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Games_details" EntitySet="Games_details" />
+          </AssociationSet>
+          <AssociationSet Name="Games_FK_Maps" Association="BOMBERMANModel.Store.Games_FK_Maps">
+            <End Role="Maps" EntitySet="Maps" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="Games_FK_UserProfile" Association="BOMBERMANModel.Store.Games_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="Games_requests_FK_Games" Association="BOMBERMANModel.Store.Games_requests_FK_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Games_requests" EntitySet="Games_requests" />
+          </AssociationSet>
+          <AssociationSet Name="Games_requests_from_FK_UserProfile" Association="BOMBERMANModel.Store.Games_requests_from_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Games_requests" EntitySet="Games_requests" />
+          </AssociationSet>
+          <AssociationSet Name="Games_requests_to_FK_UserProfile" Association="BOMBERMANModel.Store.Games_requests_to_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Games_requests" EntitySet="Games_requests" />
+          </AssociationSet>
+          <AssociationSet Name="Locations_FK_Games_details" Association="BOMBERMANModel.Store.Locations_FK_Games_details">
+            <End Role="Games_details" EntitySet="Games_details" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="Locations_FK_UserProfile" Association="BOMBERMANModel.Store.Locations_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="Users_play_FK_Games" Association="BOMBERMANModel.Store.Users_play_FK_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Users_play" EntitySet="Users_play" />
+          </AssociationSet>
+          <AssociationSet Name="Users_play_FK_UserProfile" Association="BOMBERMANModel.Store.Users_play_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Users_play" EntitySet="Users_play" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cell_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="exploded_type_to" Type="int" />
+          <Property Name="walked_type_to" Type="int" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="representation" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="explodable" Type="bit" Nullable="false" />
+          <Property Name="walkable" Type="bit" Nullable="false" />
+          <Property Name="powerups_morebomb" Type="int" Nullable="false" />
+          <Property Name="powerups_morelevel" Type="int" Nullable="false" />
+          <Property Name="powerups_morelife" Type="int" Nullable="false" />
+          <Property Name="score" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_map" Type="int" />
+          <Property Name="remaining_time" Type="int" Nullable="false" />
+          <Property Name="is_public" Type="bit" Nullable="false" />
+          <Property Name="owner" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Games_details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="location_row" Type="tinyint" Nullable="false" />
+          <Property Name="location_column" Type="tinyint" Nullable="false" />
+          <Property Name="cell_type_id" Type="int" Nullable="false" />
+          <Property Name="game_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Games_requests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="from_id_user" Type="int" Nullable="false" />
+          <Property Name="to_id_user" Type="int" Nullable="false" />
+          <Property Name="id_game" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_gamedet" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="isabomb" Type="bit" Nullable="false" />
+          <Property Name="bomb_timeout" Type="int" Nullable="false" />
+          <Property Name="bomb_level" Type="int" Nullable="false" />
+          <Property Name="isauser" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Maps">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="maplevel" Type="int" Nullable="false" />
+          <Property Name="configuration" Type="varchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
+        </EntityType>
+        <EntityType Name="Users_play">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_game" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="life" Type="int" Nullable="false" />
+          <Property Name="level" Type="int" Nullable="false" />
+          <Property Name="bomb" Type="int" Nullable="false" />
+          <Property Name="score" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Cell_typesexplosion_FK_Cell_types">
+          <End Role="Cell_types" Type="BOMBERMANModel.Store.Cell_types" Multiplicity="0..1" />
+          <End Role="Cell_types1" Type="BOMBERMANModel.Store.Cell_types" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cell_types1">
+              <PropertyRef Name="exploded_type_to" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Cell_typeswalkon_FK_Cell_types">
+          <End Role="Cell_types" Type="BOMBERMANModel.Store.Cell_types" Multiplicity="0..1" />
+          <End Role="Cell_types1" Type="BOMBERMANModel.Store.Cell_types" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cell_types1">
+              <PropertyRef Name="walked_type_to" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="BOMBERMANModel.Store.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="BOMBERMANModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="BOMBERMANModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="BOMBERMANModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_details_FK_Cell_types">
+          <End Role="Cell_types" Type="BOMBERMANModel.Store.Cell_types" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games_details" Type="BOMBERMANModel.Store.Games_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games_details">
+              <PropertyRef Name="cell_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_details_FK_Games">
+          <End Role="Games" Type="BOMBERMANModel.Store.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games_details" Type="BOMBERMANModel.Store.Games_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games_details">
+              <PropertyRef Name="game_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_FK_Maps">
+          <End Role="Maps" Type="BOMBERMANModel.Store.Maps" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games" Type="BOMBERMANModel.Store.Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maps">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="id_map" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Games" Type="BOMBERMANModel.Store.Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_requests_FK_Games">
+          <End Role="Games" Type="BOMBERMANModel.Store.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games_requests" Type="BOMBERMANModel.Store.Games_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games_requests">
+              <PropertyRef Name="id_game" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_requests_from_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Games_requests" Type="BOMBERMANModel.Store.Games_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Games_requests">
+              <PropertyRef Name="from_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_requests_to_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Games_requests" Type="BOMBERMANModel.Store.Games_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Games_requests">
+              <PropertyRef Name="to_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Locations_FK_Games_details">
+          <End Role="Games_details" Type="BOMBERMANModel.Store.Games_details" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Locations" Type="BOMBERMANModel.Store.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games_details">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="id_gamedet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Locations_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Locations" Type="BOMBERMANModel.Store.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users_play_FK_Games">
+          <End Role="Games" Type="BOMBERMANModel.Store.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users_play" Type="BOMBERMANModel.Store.Users_play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users_play">
+              <PropertyRef Name="id_game" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users_play_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Users_play" Type="BOMBERMANModel.Store.Users_play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Users_play">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BOMBERMANModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BOMBERMANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cell_types" EntityType="BOMBERMANModel.Cell_types" />
+          <EntitySet Name="Games" EntityType="BOMBERMANModel.Games" />
+          <EntitySet Name="Games_details" EntityType="BOMBERMANModel.Games_details" />
+          <EntitySet Name="Games_requests" EntityType="BOMBERMANModel.Games_requests" />
+          <EntitySet Name="Locations" EntityType="BOMBERMANModel.Locations" />
+          <EntitySet Name="Maps" EntityType="BOMBERMANModel.Maps" />
+          <EntitySet Name="UserProfile" EntityType="BOMBERMANModel.UserProfile" />
+          <EntitySet Name="Users_play" EntityType="BOMBERMANModel.Users_play" />
+          <EntitySet Name="webpages_Membership" EntityType="BOMBERMANModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="BOMBERMANModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="BOMBERMANModel.webpages_Roles" />
+          <AssociationSet Name="Cell_typesexplosion_FK_Cell_types" Association="BOMBERMANModel.Cell_typesexplosion_FK_Cell_types">
+            <End Role="Cell_types" EntitySet="Cell_types" />
+            <End Role="Cell_types1" EntitySet="Cell_types" />
+          </AssociationSet>
+          <AssociationSet Name="Cell_typeswalkon_FK_Cell_types" Association="BOMBERMANModel.Cell_typeswalkon_FK_Cell_types">
+            <End Role="Cell_types" EntitySet="Cell_types" />
+            <End Role="Cell_types1" EntitySet="Cell_types" />
+          </AssociationSet>
+          <AssociationSet Name="Games_details_FK_Cell_types" Association="BOMBERMANModel.Games_details_FK_Cell_types">
+            <End Role="Cell_types" EntitySet="Cell_types" />
+            <End Role="Games_details" EntitySet="Games_details" />
+          </AssociationSet>
+          <AssociationSet Name="Games_details_FK_Games" Association="BOMBERMANModel.Games_details_FK_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Games_details" EntitySet="Games_details" />
+          </AssociationSet>
+          <AssociationSet Name="Games_FK_Maps" Association="BOMBERMANModel.Games_FK_Maps">
+            <End Role="Maps" EntitySet="Maps" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="Games_FK_UserProfile" Association="BOMBERMANModel.Games_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="Games_requests_FK_Games" Association="BOMBERMANModel.Games_requests_FK_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Games_requests" EntitySet="Games_requests" />
+          </AssociationSet>
+          <AssociationSet Name="Users_play_FK_Games" Association="BOMBERMANModel.Users_play_FK_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Users_play" EntitySet="Users_play" />
+          </AssociationSet>
+          <AssociationSet Name="Locations_FK_Games_details" Association="BOMBERMANModel.Locations_FK_Games_details">
+            <End Role="Games_details" EntitySet="Games_details" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="Games_requests_from_FK_UserProfile" Association="BOMBERMANModel.Games_requests_from_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Games_requests" EntitySet="Games_requests" />
+          </AssociationSet>
+          <AssociationSet Name="Games_requests_to_FK_UserProfile" Association="BOMBERMANModel.Games_requests_to_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Games_requests" EntitySet="Games_requests" />
+          </AssociationSet>
+          <AssociationSet Name="Locations_FK_UserProfile" Association="BOMBERMANModel.Locations_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="Users_play_FK_UserProfile" Association="BOMBERMANModel.Users_play_FK_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Users_play" EntitySet="Users_play" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="BOMBERMANModel.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cell_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="exploded_type_to" Type="Int32" />
+          <Property Name="walked_type_to" Type="Int32" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="representation" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="explodable" Type="Boolean" Nullable="false" />
+          <Property Name="walkable" Type="Boolean" Nullable="false" />
+          <Property Name="powerups_morebomb" Type="Int32" Nullable="false" />
+          <Property Name="powerups_morelevel" Type="Int32" Nullable="false" />
+          <Property Name="powerups_morelife" Type="Int32" Nullable="false" />
+          <Property Name="score" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cell_types1" Relationship="BOMBERMANModel.Cell_typesexplosion_FK_Cell_types" FromRole="Cell_types" ToRole="Cell_types1" />
+          <NavigationProperty Name="Cell_types2" Relationship="BOMBERMANModel.Cell_typesexplosion_FK_Cell_types" FromRole="Cell_types1" ToRole="Cell_types" />
+          <NavigationProperty Name="Cell_types11" Relationship="BOMBERMANModel.Cell_typeswalkon_FK_Cell_types" FromRole="Cell_types" ToRole="Cell_types1" />
+          <NavigationProperty Name="Cell_types3" Relationship="BOMBERMANModel.Cell_typeswalkon_FK_Cell_types" FromRole="Cell_types1" ToRole="Cell_types" />
+          <NavigationProperty Name="Games_details" Relationship="BOMBERMANModel.Games_details_FK_Cell_types" FromRole="Cell_types" ToRole="Games_details" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_map" Type="Int32" />
+          <Property Name="remaining_time" Type="Int32" Nullable="false" />
+          <Property Name="is_public" Type="Boolean" Nullable="false" />
+          <Property Name="owner" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Games_details" Relationship="BOMBERMANModel.Games_details_FK_Games" FromRole="Games" ToRole="Games_details" />
+          <NavigationProperty Name="Maps" Relationship="BOMBERMANModel.Games_FK_Maps" FromRole="Games" ToRole="Maps" />
+          <NavigationProperty Name="UserProfile" Relationship="BOMBERMANModel.Games_FK_UserProfile" FromRole="Games" ToRole="UserProfile" />
+          <NavigationProperty Name="Games_requests" Relationship="BOMBERMANModel.Games_requests_FK_Games" FromRole="Games" ToRole="Games_requests" />
+          <NavigationProperty Name="Users_play" Relationship="BOMBERMANModel.Users_play_FK_Games" FromRole="Games" ToRole="Users_play" />
+        </EntityType>
+        <EntityType Name="Games_details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="location_row" Type="Byte" Nullable="false" />
+          <Property Name="location_column" Type="Byte" Nullable="false" />
+          <Property Name="cell_type_id" Type="Int32" Nullable="false" />
+          <Property Name="game_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cell_types" Relationship="BOMBERMANModel.Games_details_FK_Cell_types" FromRole="Games_details" ToRole="Cell_types" />
+          <NavigationProperty Name="Games" Relationship="BOMBERMANModel.Games_details_FK_Games" FromRole="Games_details" ToRole="Games" />
+          <NavigationProperty Name="Locations" Relationship="BOMBERMANModel.Locations_FK_Games_details" FromRole="Games_details" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="Games_requests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="from_id_user" Type="Int32" Nullable="false" />
+          <Property Name="to_id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_game" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Games" Relationship="BOMBERMANModel.Games_requests_FK_Games" FromRole="Games_requests" ToRole="Games" />
+          <NavigationProperty Name="UserProfile" Relationship="BOMBERMANModel.Games_requests_from_FK_UserProfile" FromRole="Games_requests" ToRole="UserProfile" />
+          <NavigationProperty Name="UserProfile1" Relationship="BOMBERMANModel.Games_requests_to_FK_UserProfile" FromRole="Games_requests" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_gamedet" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="isabomb" Type="Boolean" Nullable="false" />
+          <Property Name="bomb_timeout" Type="Int32" Nullable="false" />
+          <Property Name="bomb_level" Type="Int32" Nullable="false" />
+          <Property Name="isauser" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Games_details" Relationship="BOMBERMANModel.Locations_FK_Games_details" FromRole="Locations" ToRole="Games_details" />
+          <NavigationProperty Name="UserProfile" Relationship="BOMBERMANModel.Locations_FK_UserProfile" FromRole="Locations" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Maps">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="maplevel" Type="Int32" Nullable="false" />
+          <Property Name="configuration" Type="String" Nullable="false" MaxLength="8000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Games" Relationship="BOMBERMANModel.Games_FK_Maps" FromRole="Maps" ToRole="Games" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Games" Relationship="BOMBERMANModel.Games_FK_UserProfile" FromRole="UserProfile" ToRole="Games" />
+          <NavigationProperty Name="Games_requests" Relationship="BOMBERMANModel.Games_requests_from_FK_UserProfile" FromRole="UserProfile" ToRole="Games_requests" />
+          <NavigationProperty Name="Games_requests1" Relationship="BOMBERMANModel.Games_requests_to_FK_UserProfile" FromRole="UserProfile" ToRole="Games_requests" />
+          <NavigationProperty Name="Locations" Relationship="BOMBERMANModel.Locations_FK_UserProfile" FromRole="UserProfile" ToRole="Locations" />
+          <NavigationProperty Name="Users_play" Relationship="BOMBERMANModel.Users_play_FK_UserProfile" FromRole="UserProfile" ToRole="Users_play" />
+          <NavigationProperty Name="webpages_Roles" Relationship="BOMBERMANModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="Users_play">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_game" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="life" Type="Int32" Nullable="false" />
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <Property Name="bomb" Type="Int32" Nullable="false" />
+          <Property Name="score" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Games" Relationship="BOMBERMANModel.Users_play_FK_Games" FromRole="Users_play" ToRole="Games" />
+          <NavigationProperty Name="UserProfile" Relationship="BOMBERMANModel.Users_play_FK_UserProfile" FromRole="Users_play" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfile" Relationship="BOMBERMANModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="Cell_typesexplosion_FK_Cell_types">
+          <End Role="Cell_types" Type="BOMBERMANModel.Cell_types" Multiplicity="0..1" />
+          <End Role="Cell_types1" Type="BOMBERMANModel.Cell_types" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cell_types1">
+              <PropertyRef Name="exploded_type_to" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Cell_typeswalkon_FK_Cell_types">
+          <End Role="Cell_types" Type="BOMBERMANModel.Cell_types" Multiplicity="0..1" />
+          <End Role="Cell_types1" Type="BOMBERMANModel.Cell_types" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cell_types1">
+              <PropertyRef Name="walked_type_to" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_details_FK_Cell_types">
+          <End Role="Cell_types" Type="BOMBERMANModel.Cell_types" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games_details" Type="BOMBERMANModel.Games_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games_details">
+              <PropertyRef Name="cell_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_details_FK_Games">
+          <End Role="Games" Type="BOMBERMANModel.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games_details" Type="BOMBERMANModel.Games_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games_details">
+              <PropertyRef Name="game_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_FK_Maps">
+          <End Role="Maps" Type="BOMBERMANModel.Maps" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games" Type="BOMBERMANModel.Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maps">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="id_map" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.UserProfile" Multiplicity="1" />
+          <End Role="Games" Type="BOMBERMANModel.Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_requests_FK_Games">
+          <End Role="Games" Type="BOMBERMANModel.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Games_requests" Type="BOMBERMANModel.Games_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Games_requests">
+              <PropertyRef Name="id_game" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users_play_FK_Games">
+          <End Role="Games" Type="BOMBERMANModel.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users_play" Type="BOMBERMANModel.Users_play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users_play">
+              <PropertyRef Name="id_game" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Locations_FK_Games_details">
+          <End Role="Games_details" Type="BOMBERMANModel.Games_details" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Locations" Type="BOMBERMANModel.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games_details">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="id_gamedet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_requests_from_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.UserProfile" Multiplicity="1" />
+          <End Role="Games_requests" Type="BOMBERMANModel.Games_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Games_requests">
+              <PropertyRef Name="from_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Games_requests_to_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.UserProfile" Multiplicity="1" />
+          <End Role="Games_requests" Type="BOMBERMANModel.Games_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Games_requests">
+              <PropertyRef Name="to_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Locations_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.UserProfile" Multiplicity="1" />
+          <End Role="Locations" Type="BOMBERMANModel.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users_play_FK_UserProfile">
+          <End Role="UserProfile" Type="BOMBERMANModel.UserProfile" Multiplicity="1" />
+          <End Role="Users_play" Type="BOMBERMANModel.Users_play" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Users_play">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="BOMBERMANModel.webpages_Roles" Multiplicity="*" />
+          <End Role="UserProfile" Type="BOMBERMANModel.UserProfile" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BOMBERMANModelStoreContainer" CdmEntityContainer="BOMBERMANEntities">
+          <EntitySetMapping Name="Cell_types">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Cell_types">
+              <MappingFragment StoreEntitySet="Cell_types">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="exploded_type_to" ColumnName="exploded_type_to" />
+                <ScalarProperty Name="walked_type_to" ColumnName="walked_type_to" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="representation" ColumnName="representation" />
+                <ScalarProperty Name="explodable" ColumnName="explodable" />
+                <ScalarProperty Name="walkable" ColumnName="walkable" />
+                <ScalarProperty Name="powerups_morebomb" ColumnName="powerups_morebomb" />
+                <ScalarProperty Name="powerups_morelevel" ColumnName="powerups_morelevel" />
+                <ScalarProperty Name="powerups_morelife" ColumnName="powerups_morelife" />
+                <ScalarProperty Name="score" ColumnName="score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Games">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_map" ColumnName="id_map" />
+                <ScalarProperty Name="remaining_time" ColumnName="remaining_time" />
+                <ScalarProperty Name="is_public" ColumnName="is_public" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games_details">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Games_details">
+              <MappingFragment StoreEntitySet="Games_details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="location_row" ColumnName="location_row" />
+                <ScalarProperty Name="location_column" ColumnName="location_column" />
+                <ScalarProperty Name="cell_type_id" ColumnName="cell_type_id" />
+                <ScalarProperty Name="game_id" ColumnName="game_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games_requests">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Games_requests">
+              <MappingFragment StoreEntitySet="Games_requests">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="from_id_user" ColumnName="from_id_user" />
+                <ScalarProperty Name="to_id_user" ColumnName="to_id_user" />
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Locations">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_gamedet" ColumnName="id_gamedet" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="isabomb" ColumnName="isabomb" />
+                <ScalarProperty Name="bomb_timeout" ColumnName="bomb_timeout" />
+                <ScalarProperty Name="bomb_level" ColumnName="bomb_level" />
+                <ScalarProperty Name="isauser" ColumnName="isauser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maps">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Maps">
+              <MappingFragment StoreEntitySet="Maps">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="maplevel" ColumnName="maplevel" />
+                <ScalarProperty Name="configuration" ColumnName="configuration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="BOMBERMANModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_play">
+            <EntityTypeMapping TypeName="BOMBERMANModel.Users_play">
+              <MappingFragment StoreEntitySet="Users_play">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="life" ColumnName="life" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="bomb" ColumnName="bomb" />
+                <ScalarProperty Name="score" ColumnName="score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="BOMBERMANModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="BOMBERMANModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="BOMBERMANModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="BOMBERMANModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

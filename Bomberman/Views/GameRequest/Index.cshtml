@@ -1,0 +1,86 @@
+﻿@model Bomberman.Models.GameRequestReceivedSentViewModel
+
+@{
+    ViewBag.Title = "Requête de jeu";
+}
+<script type="text/javascript">
+   
+   
+   
+</script>
+<div id="main">
+<h2>Invitations reçues et  envoyées</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+            
+            
+            <div id="available" >
+                <h2 style="border:solid 1px;text-align: center;width:130px;background-color: lightblue ;margin-left:10px;">Reçues</h2>
+            </div>
+            <div id="listAvailable" style="border: none 1px;">
+                <table id="tableAvailable">
+                  <thead> 
+                  <tr style="background-color:lightgrey;"> 
+                      <th style="width:400px;">De la part de </th>
+                        <th style="width:400px;">Titre du jeu</th>
+                        <th style="width:400px;">&nbsp;</th>
+                    </tr> 
+                 </thead>
+                <tbody>
+                @foreach (var item in Model.input) {
+        <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserProfile.UserName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Games.title)
+        </td>
+        <td>
+            @Html.ActionLink("LetsPlay", "LetsPlay","Game", new { id=item.id_game },null) 
+           @Html.ActionLink("Delete", "Delete", new { id=item.id })
+         </td>
+    </tr>
+}
+                </tbody>
+                
+                </table>
+            </div>
+            <div id="unavailable" style="text-align: left;">
+                <h2 style="border:solid 1px;text-align: center;width:130px;background-color: lightblue;margin-left:10px;">Envoyées</h2>
+            </div>
+            <div id="listUnavailable" style="border: none 1px;">
+                <table id="tableUnavailable">
+                <thead> 
+                  <tr style="background-color:lightgrey;"> 
+                      <th style="width:400px;">Pour </th>
+                        <th style="width:400px;">Titre du jeu</th>
+                        <th style="width:400px;">&nbsp;</th>
+                    </tr> 
+                 </thead>
+                <tbody>
+                @foreach (var item in Model.output) {
+        <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserProfile1.UserName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Games.title)
+        </td>
+        <td>
+            @Html.ActionLink("LetsPlay", "LetsPlay","Game", new { id=item.id_game },null) 
+           @Html.ActionLink("Delete", "Delete", new { id=item.id })
+         </td>
+    </tr>
+}
+                </tbody>
+                
+                
+                </table>
+            </div>
+  </div>

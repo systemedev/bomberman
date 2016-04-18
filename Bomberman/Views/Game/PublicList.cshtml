@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Bomberman.Models.Games> 
+
+@{
+    Layout = "";
+}
+<div id="public" >
+                <h2 style="border:solid 1px;text-align: center;width:130px;background-color: lightgrey ;margin-left:10px;">Jeux publiques</h2>
+            </div>
+            <div id="listPublic" style="border: none 1px;">
+                <table id="tablePublic">
+                  <thead style="text-align: right;"> 
+                  <tr style="background-color:lightgrey;"> 
+                      <th style="width:200px;">Nom du jeu</th> 
+      <th style="width:200px;">Temps restant</th> 
+      <th style="width:200px;">Carte</th> 
+      
+      <th style="width:400px;">Créateur</th>
+     <th style="width:200px;">Jouons-y!</th>
+                    </tr> 
+                 </thead>
+                <tbody>
+                @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remaining_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maps.title)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.UserProfile.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("LetsPlay", "LetsPlay", new { id=item.id }) 
+            
+        </td>
+    </tr>
+}
+
+                </tbody>
+                
+                </table>
+            </div>
+     
+

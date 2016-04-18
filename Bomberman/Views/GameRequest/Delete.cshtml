@@ -1,0 +1,42 @@
+﻿@model Bomberman.Models.Games_requests
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div id="main">
+<h2>Supprimer cette invitation ?</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Games_requests</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserProfile.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserProfile.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserProfile1.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserProfile1.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Games.title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Games.title)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to my List of invitations", "Index","GameRequest") |
+    @Html.ActionLink("Back to my List of games", "Index","Game") |  @Html.ActionLink("Back to public games", "Index","Home")
+    </p>
+}
+</div>
